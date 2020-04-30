@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/DeepTechSpaceServer.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>[DeepTechSpaceServer] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/DeepTechSpaceServer.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>[DeepTechSpaceServer] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <!-- 禁止在debug模式下 以下这些东西打印些没啥用的日志信息 -->
+    <logger name="org.apache.activemq.transport.AbstractInactivityMonitor" level="OFF"/>
+    <logger name="org.apache.http" level="OFF"/>
+    <logger name="org.springframework" level="OFF"/>
+    <logger name="org.hibernate" level="OFF"/>
+    <logger name="org.thymeleaf.TemplateEngine" level="OFF"/>
+    <logger name="org.thymeleaf.TemplateEngine.CONFIG" level="OFF"/>
+    <logger name="springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping" level="OFF"/>
+    <logger name="com.zaxxer.hikari.pool.PoolBase" level="OFF"/>
+    <logger name="com.zaxxer.hikari.pool.HikariPool" level="OFF"/>
+    <logger name="io.lettuce.core.protocol.CommandEncoder" level="OFF"/>
+    <logger name="io.lettuce.core.protocol.RedisStateMachine" level="OFF"/>
+    <logger name="io.lettuce.core.protocol.CommandHandler" level="OFF"/>
+    <logger name="io.lettuce.core.protocol.DefaultEnd" level="OFF"/>
+    <logger name="io.lettuce.core.RedisClient" level="OFF"/>
+    <logger name="io.lettuce.core.protocol.DefaultEndpoint" level="OFF"/>
+    <logger name="io.lettuce.core.RedisChannelHandler" level="OFF"/>
+    <logger name="io.swagger.models.parameters.AbstractSerializableParameter" level="OFF"/>
+    <logger name="springfox.documentation.schema.property.*" level="OFF"/>
+    <logger name="com.deepoove.poi.render.RenderAPI" level="OFF"/>
+    <logger name="org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener" level="OFF"/>
+
+    <root level="info">
+        <appender-ref ref="file"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
